@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <%- include('partials/header', {title: ' Bem-vindo a nossa aplicação!'}) %>
+    <div class="main-container">
+        <div class="container">
+            <div class="images">
+                <div class="edifico">
+                    <img class="edificio" src="/images/edificio.avif" alt="Edificio">
+                </div>
+                <div class="content">
+                <h1>Clínica Nzinga Nzonene <span> 2N</span></h1>
+                <h2>
+                    Bem-vindo a nossa Clinica!
+                </h2>
+                <p>
+                    Cadastra-se para acessar funcionalidades exclusivas, como o cadastro de pacientes e medicos, além de poder fazer login para acessar a sua conta.
+                </p>
+                <h2>Nossas especialidades</h2>
+                <ul class="especi">
+                   <li>Clínica Geral</li>
+                   <li>Pedriatria</li>
+                   <li>Genecologia</li>
+                   <li>Urologia</li>
+                </ul>
+                <p>Faça a sua consulta presencial ou Online</p>
+                <p>O que achou do nosso atendimento? <span><a href="/usuarios/depoimento">Deixe o seu depoimento</a></span></p>
+            </div>
+            </div>
+            <div class="image-2">
+                    <h2>Médica Pediátrica</h2>
+                    <p>Marca a sua consulta de Pediatria com a nossa especialista.</p>
+                  <img class="medica" src="/images/medica.avif" alt="Medica">
+                  <div class="laboratorio">
+                    <h2>laboratório de análises clinica</h2>
+                    <p>Faça seus exames sem dar voltas a cabeça.</p>
+                    <img src="/images/labo.avif" alt="laboratório" class="labo">
+                    <div class="clinica">
+                        <h1>Consultório médico</h1>
+                        <p>Nosso consultórios são modernos e equipados com equipamentos de alta tecnólogia</p>
+                        <img class="clinic" src="/images/clinic.avif" alt="Clinica">
+                    </div>
+                  </div>
+            </div>
+    </div>
+      
+            
+<%- include('partials/footer', {title: 'Bem-vindo a nossa aplicação '}) %>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Médicos</title>
+  </head>
+  <body>
+    <%- include('partials/header', { title: 'Página dos Medicos'}) %>
+
+    <div class="container">
+      <h1>Médicos cadastrados</h1>
+      <% if (error) { %>
+      <div class="alert alert-danger"><%= error %></div>
+      <% } else if (message) { %>
+      <div class="alert alert-message"><%= message %></div>
+      <% } %>
+
+
+      <form action="/medicos/medicosCadastrados" method="GET" class="form-busca">
+    <input type="text" name="q" placeholder="Buscar por email ou telefone" value="<%= typeof q !== 'undefined' ? q : '' %>">
+    <input type="submit" class="submit-btn" value="Buscar medicos" />
+  </form>
+
+</div>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Telefone</th>
+    <th>Ações</th>
+    <th>Deleatar</th>
+  </tr>
+  <% medicos.forEach(function(medico) { %>
+    <tr>
+      <td><%= medico.name %></td>
+      <td><%= medico.email %></td>
+      <td><%= medico.cedula %></td>
+      <td><%= medico.telefone %></td>
+      <td>
+        <a href="/medicos/medicosCadastrados/editar/<%= medico.id %>">Editar</a>
+      </td>
+      <td>
+        <form action="/medicos/medicosCadastrados/deletar/<%= medico.id%>" method="POST" class="control">
+           <button type="submit" onclick="return confirm('Tem certeza que deseja apagar?')" class="delete-button">Deletar</button>
+        </form>
+      </td>
+    </tr>
+   
+  <% }) %>
+</table>
+
+  <!-- Botões de navegação na paginas -->
+
+  <div class="pagination">
+  <% if (page > 1) { %>
+    <a href="?q=<%= q %>&page=<%= page - 1 %>">Anterior</a>
+  <% } %>
+  Página <%= page %> de <%= totalPages %>
+  <% if (page < totalPages) { %>
+    <a href="?q=<%= q %>&page=<%= page + 1 %>">Próxima</a>
+  <% } %>
+</div>
+    </div>
+
+    <%- include('partials/footer', { title: 'Página dos Medicos'}) %>
+  </body>
+</html>

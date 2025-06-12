@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda medica</title>
+  </head>
+  <body>
+    <%- include('partials/header', { title: 'Agenda Médico'}) %>
+
+    <div class="container">
+      <h1>Agenda do dia</h1>
+      <p>Seja Bem-Vindo Dr(a) <%= medico.name %></p>
+
+      <% if (consultas && consultas.length > 0) { %>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Paciente</th>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% consultas.forEach(function(consulta) { %>
+          <tr>
+            <td><%= consulta.id %></td>
+            <td><%= consulta.paciente_id %></td>
+            <td><%= consulta.data %></td>
+            <td><%= consulta.tipo_consulta %></td>
+            <td><%= consulta.status ? 'Ativa' : 'Inativa' %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <p>Nenhuma consulta agendada.</p>
+      <% } %>
+    </div>
+
+    <%- include('partials/footer', { title: 'Agenda Médico'}) %>
+  </body>
+</html>

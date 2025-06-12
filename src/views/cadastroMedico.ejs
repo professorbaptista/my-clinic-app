@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro Medico</title>
+  </head>
+  <body>
+    <%- include('partials/header', { title: 'Cadastro de medicos' }) %>
+
+    <div class="container">
+      <h1>Cadastro de médicos</h1>
+      <p>Cadastre-se aqui</p>
+
+      <form action="/medicos/cadastro" method="POST" class="form-control">
+        <div class="control">
+          <label for="name">
+            Nome:
+            <input
+              type="text"
+              name="name"
+              placeholder="Introduz o nome nome..."
+              required
+            />
+          </label>
+        </div>
+
+        <div class="control">
+          <label for="email">
+            E-mail:
+            <input
+              type="email"
+              name="email"
+              placeholder=" Introduz o email..."
+              required
+            />
+          </label>
+        </div>
+
+        <div class="control">
+          <label for="cedula">
+            Cédula:
+            <input
+              type="text"
+              name="cedula"
+              placeholder="Introduz a cédula..."
+              required
+            />
+          </label>
+        </div>
+
+        <div class="control">
+          <label for="telefone">
+            Telefone:
+            <input
+              type="text"
+              name="telefone"
+              placeholder="Introduz o número de telefone..."
+              required
+            />
+          </label>
+        </div>
+
+        <button type="submit" onclick="this.disabled=true;this.form.submit();">
+          Cadastrar
+        </button>
+        <a href="/usuarios" class="btn">Voltar</a>
+      </form>
+    </div>
+
+    <%- include('partials/footer', { title: 'Cadastro de medicos' }) %>
+  </body>
+</html>

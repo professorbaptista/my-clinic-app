@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depoimentos</title>
+</head>
+<body>
+    <%- include('partials/header', {title: 'Depoimentos'}) %>
+    <div class="container">
+        <h1>Depoimentos</h1>
+        <p>Deixe o seu depoimento sobre a experiência vivida na nossa clínica</p>
+        <form action="/usuarios/depoimentos"  method="POST" class="form-control">
+            <label for="name">Nome: </label>
+            <input type="text" name="name" required>
+            <label for="mensagem">Seu depoimento</label>
+            <textarea name="mensagem" id="mensagem" placeholder="Deixe o seu depoimento" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <%- include('partials/footer', {title: 'Depoimentos'}) %>
+</body>
+</html>

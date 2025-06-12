@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Médica</title>
+</head>
+<body>
+    <%- include('partials/header', { title: 'Área Medica'}) %>
+        <div class="container">
+            <h1>Área dos Medicos</h1>
+             <h2>bem-vindo, Dr(a). <%= medico.email %></h2>
+             <p>Telefone cadastrado: <%= medico.telefone %> </p>
+             <p>Faça maior proveito do seu dia de trabalho Dr(a).</p>
+        </div>
+    <%- include('partials/footer', { title: 'Área Medica'}) %>
+</body>
+</html>

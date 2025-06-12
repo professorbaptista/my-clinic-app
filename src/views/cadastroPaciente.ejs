@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro de Paciente</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <%- include('partials/header', {title: 'Cadastro de pacientes'}) %>
+  <div class="container">
+    <h1>Cadastro de Paciente</h1>
+<!-- 
+    Exibindo mensagem de erro. -->
+
+    <% if (message) { %>
+      <div class="alert alert-sucess">
+        <%= message %>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          document.querySelector('form').reset();
+        })
+      </script>
+    <% } %>
+
+    <form action="/usuarios/pacientes" method="POST" class="form-control">
+      <div class="control">
+        <label for="name"> 
+          Nome:
+          <input type="text" name="name" placeholder="Introduz o nome nome..." required />
+        </label>
+      </div>
+
+      <div class="control">
+        <label for="email">
+          E-mail:
+          <input type="email" name="email" placeholder=" Introduz o email..." required />
+        </label>
+      </div>
+
+      <div class="control">
+        <label for="password">
+          Senha:
+          <input type="password" name="password" placeholder="Introduz a senha" required />
+        </label>
+      </div>
+
+      <div class="control">
+        <label for="telefone">
+          Telefone:
+          <input type="text" name="telefone" placeholder="Introduz o número de telefone..." required />
+        </label>
+      </div>
+
+      <button type="submit" onclick="this.disabled=true;this.form.submit();">Cadastrar</button>
+         <button><a href="/usuarios" class="btn">Voltar</a></button>
+    </form>
+ 
+  </div>
+  <%- include('partials/footer', { title: 'Cadastro de pacientes'}) %>
+  
+</body>
+</html>

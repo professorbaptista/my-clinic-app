@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Depoimento</title>
+</head>
+<body>
+    <%- include('partials/header', {title: 'Editar Depoimento'})  %>
+
+    <div class="container">
+        <h1>Editar Depoimento </h1>
+        <% depoimentos.forEach(depo => { %>
+
+            <p><strong><%= depo.name %> </strong></p>
+            <p><%= depo.mensagem %></p>
+            <form action="/usuarios/PaginaDeDepoimentos" method="GET">
+
+                <button type="submit" class="btn">Editar</button>
+            </form>
+            <form action="/usuarios/deletar/<%= depo.id %>" method="POST">
+                <button type="submit" class="btn">Deletar</button>
+            </form>
+
+        <% }) %>
+    </div>
+
+    <%- include('partials/footer', {title: 'Editar Depoimento'})  %>
+</body>
+</html>

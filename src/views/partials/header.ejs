@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="/usuarios/">2N <span>Clinic</span></a>
+        </div>
+
+        <ul>
+          <li><a href="/usuarios/">Home</a></li>
+          <li><a href="/usuarios/sobre">Sobre</a></li>
+          <li><a href="/usuarios/contacto">Contactos</a></li>
+          <li><a href="/usuarios/paginaDeDepoimentos">Depoimentos</a></li>
+
+          <% if (user) { %> <% if (user.tipo === 'paciente') { %>
+          <!-- Área de pacientes -->
+          <li><a href="/consultas">Minhas Consultas</a></li>
+          <li><a href="/consultas/relatorio">Relatórios</a></li>
+          <li><a href="/usuarios/agendar">Agendar consultas</a></li>
+          <li><a href="/usuarios/pacientes">Pacientes</a></li>
+          <% } else if (user.tipo === 'medico') { %>
+          <!-- Área de médicos -->
+          <!-- <li><a href="/consultas">Consultas dos Pacientes</a></li> -->
+          <li><a href="/medicos/meusPacientes">Meus Pacientes</a></li>
+          <li><a href="/medicos/agendaMedica">Minha Agenda</a></li>
+          <li><a href="/medicos/medicosCadastrados">Editar Medico</a></li>
+          <% } %>
+          <li><a href="/usuarios/logout">Sair</a></li>
+          <% } else { %>
+          <li class="dropdown">
+            <a href="#">Cadastrar ▼</a>
+            <div class="dropdown-content">
+              <a href="/usuarios/cadastro">Como Paciente</a>
+              <a href="/medicos/cadastro">Como Médico</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Entrar ▼</a>
+            <div class="dropdown-content">
+              <a href="/usuarios/login">Como Paciente</a>
+              <a href="/medicos/login">Como Médico</a>
+            </div>
+          </li>
+          <% } %>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Medico</title>
+</head>
+<body>
+    <%- include('partials/header', { title: 'Editar Médico'}) %>
+    <div class="container">
+        <h1>Editar Médico</h1>
+
+        <form action="/medicos/medicosCadastrados/editar/<%= medico.id %>" method="POST" class="form-control">
+        <!-- Hidden input to store the patient ID -->
+        <input type="hidden" name="id" value="<%= medico.id %>">
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="name" name="name" value="<%= medico.name %>" placeholder="Nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= medico.email %>" placeholder="E-mail" required>
+
+        <label for="cedula">Cedula Profissional:</label>
+        <input type="text" id="cedula" name="cedula" value="<%= medico.email %>" placeholder="Cedula
+         Profissional" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" value="<%= medico.telefone %>" placeholder="Telefone" required>
+
+        <button type="submit" onclick="this.disabled=true;this.form.submit();">Editar</button>
+
+         <button class="btn"><a href="/medicos/cadastro" class="btn">Voltar</a></button>
+        </form>
+    </div>
+    <%- include('partials/footer', { title: 'Editar Médico'}) %>
+</body>
+</html>

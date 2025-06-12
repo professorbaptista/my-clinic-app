@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Pacientes</title>
+</head>
+<body>
+    <%- include('partials/header', { title: ' Relatórios de Pacientes '}) %>
+      
+    <div class="container">
+        
+        <h1>Relatório de Pacientes</h1>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Telefone</th>
+  </tr>
+  <% pacientes.forEach(function(paciente) { %>
+    <tr>
+      <td><%= paciente.name %></td>
+      <td><%= paciente.email %></td>
+      <td><%= paciente.telefone %></td>
+    </tr>
+  <% }) %>
+</table>
+
+    </div>
+
+    <%- include('partials/footer', { title: ' Relatórios de Pacientes '}) %>
+</body>
+</html>

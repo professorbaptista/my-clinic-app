@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+     <%- include('partials/header', {title: ' Faça login para continuar '}) %>
+
+    <div class="container">
+        <h1>Faça Login para continuar</h1>
+
+        <!-- Exibindo mensagem de erro. -->
+         <% if (error) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } %>
+       
+        <form action="/usuarios/login" method="POST" class="form-control">
+            <div class="control">
+                <label for="email"> E-mail: 
+                    <input type="email" name="email" placeholder="Introduz o email...">
+                </label>
+            </div>
+
+            <div class="control">
+                <label for="email"> Telefone: 
+                    <input type="tel" name="telefone" placeholder="Introduz o número de telefone...">
+                </label>
+            </div>
+            <button>Entrar</button>
+        </form>
+        <p>Não tens conta <span><a href="/usuarios/cadastro">Cadastre-se aqui</a></span></p>
+    </div>
+
+    <%- include('partials/footer', {title: ' Faça login para continuar '}) %>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login medico</title>
+  </head>
+  <body>
+    <%- include('partials/header', { title: 'Login dos médicos'}) %>
+
+    <div class="container">
+      <h1>login dos médicos</h1>
+      <p>Faça login para continuar</p>
+
+      <!-- Exibindo mensagem de erro. -->
+      <% if (error) { %>
+      <div class="alert alert-danger"><%= error %></div>
+      <% } %>
+
+        <form action="/medicos/login" method="POST" class="form-control">
+            <div class="control">
+                <label for="email"> E-mail: 
+                    <input type="email" name="email" placeholder="Introduz o email..." required>
+                </label>
+            </div>
+
+            <div class="control">
+                <label for="email"> Telefone: 
+                    <input type="tel" name="telefone" placeholder="Introduz o número de telefone..." required>
+                </label>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Não tens conta? <span><a href="/medicos/cadastro">Cadastre-se</a></span></p><br><br>
+    </div>
+
+    <%- include('partials/footer', { title: 'Login dos médicos'}) %>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissão negada</title>
+</head>
+<body>
+    <%- include('partials/header', { title: 'Permissão Negada'}) %>
+
+    <div class="container">
+        <h1>Permissão Negada</h1>
+        <p><%= message || 'Você não tem Permissão para acessar esta página.' %></p>
+        <a href="/usuarios">Voltar para o inicio</a>
+    </div>
+
+      <%- include('partials/footer', { title: 'Permissão Negada'}) %>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de coonsultas</title>
+</head>
+<body>
+    <%- include('partials/header', { title: ' Pagina de Consultas'}) %>
+    
+    <div class="container">   
+       
+        <h1>Pacientes agendados</h1>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Telefone</th>
+    <th>Especialidade</th>
+    <th>Data</th>
+  </tr>
+  <% consultas.forEach(consulta => { %>
+    <tr>
+      <td><%= consulta.name %></td>
+      <td><%= consulta.email %></td>
+      <td><%= consulta.telefone %></td>
+      <td><%= consulta.tipo_consulta %></td>
+      <td><%= consulta.data %></td>
+    </tr>
+  <% }) %>
+</table>
+
+    </div>
+
+    <%- include('partials/footer', { title: ' Pagina de consultas ' }) %>
+</body>
+</html>

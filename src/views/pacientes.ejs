@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <%- include('partials/header', {title: ' Pacientes cadastrados'}) %>
+<div class="container">
+<h1>Pacientes Cadastrados</h1>
+  <!-- Exibiçao de message de sucesso ou erro! -->
+
+ <% if (error) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } else if (message) { %>
+  <div class="alert alert-message"><%= message %></div>
+<% } %>
+
+ <div class="buscar">
+  
+   <div class="novo-paciente">
+      <a href="/usuarios/cadastro">Novo Paciente</a>
+    </div>
+
+  <form action="/usuarios/pacientes" method="GET" class="form-busca">
+    <input type="text" name="q" placeholder="Buscar por nome ou telefone" value="<%= typeof q !== 'undefined' ? q : '' %>">
+    <input type="submit" class="submit-btn" value="Buscar Paciente" />
+  </form>
+
+</div>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Telefone</th>
+    <th>Ações</th>
+    <th>Ações</th>
+  </tr>
+  <% pacientes.forEach(function(paciente) { %>
+    <tr>
+      <td><%= paciente.name %></td>
+      <td><%= paciente.email %></td>
+      <td><%= paciente.telefone %></td>
+      <td>
+        <a href="/usuarios/pacientes/editar/<%= paciente.id %>">Editar</a>
+      </td>
+      <td>
+        <form action="/usuarios/delete/<%= paciente.id %>" method="POST" class="control">
+           <button type="submit" onclick="return confirm('Tem certeza que deseja apagar?')" class="delete-button">Apagar</button>
+        </form>
+      </td>
+    </tr>
+   
+  <% }) %>
+</table>
+
+  <!-- Botões de navegação na paginas -->
+
+  <div class="pagination">
+  <% if (page > 1) { %>
+    <a href="?q=<%= q %>&page=<%= page - 1 %>">Anterior</a>
+  <% } %>
+  Página <%= page %> de <%= totalPages %>
+  <% if (page < totalPages) { %>
+    <a href="?q=<%= q %>&page=<%= page + 1 %>">Próxima</a>
+  <% } %>
+</div>
+</div>
+    <%- include('partials/footer', {title: ' Pacientes cadastrados '}) %>
+</body>
+</html>

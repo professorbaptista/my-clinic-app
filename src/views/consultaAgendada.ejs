@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas agendadas</title>
+</head>
+<body>
+    <%- include('partials/header', { title: 'Agendamento Realizado' }) %> <div class="alert" ><%= message %></div>
+    <div class="container">
+        <h1>Agendamento Realizado</h1>
+        <table>
+            <tr><th>Data:</th><td><%= agendamento.data %></td></tr>
+
+            <tr><th>Hora:</th><td><%= agendamento.hora %></td></tr>
+            <tr><th>Especialidade:</th><td><%= agendamento.especialidade %></td></tr>
+            <tr><th>Medico:</th><td><%= agendamento.medico %></td></tr>
+        </table>
+
+             <div class="btn-cont"><a href="/usuarios/agendar" class="btn">Agendar outra consulta</a></div>
+    </div>
+    <%- include('partials/footer', { title: 'Agendamento Realizado'}) %>
+</body>
+</html>

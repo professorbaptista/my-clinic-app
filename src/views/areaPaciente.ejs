@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do paciente</title>
+</head>
+<body>
+    <%- include('partials/header', { title: 'Área paciente'}) %>
+        <div class="container">
+            <h1> Área do paciente</h1>
+             <p>Bem-Vindo, Sr(a). <%= paciente.email %></p>
+             <p>Telefone cadastrado: <%= paciente.telefone %> </p>
+             <p>O que deseja fazer hoje!</p>
+        </div>
+    <%- include('partials/footer', { title: 'Área paciente'}) %>
+</body>
+</html>

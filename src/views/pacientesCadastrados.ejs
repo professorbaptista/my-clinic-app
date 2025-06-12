@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes Cadastrados</title>
+</head>
+<body>
+
+    <%- include('partials/header', {title: 'Pacientes Cadastrados'}) %>
+
+    <div class="container">
+
+      <h1>Pacientes Cadastrados</h1>
+
+        <!-- Exibindo mesangem de sucesso. -->
+<% if (message) { %>
+  <div class="alert alert-message"><%= message %></div>
+<% } %>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Telefone</th>
+  </tr>
+ 
+    <tr>
+      <td><%= paciente.name %></td>
+      <td><%= paciente.email %></td>
+      <td><%= paciente.telefone %></td>
+    </tr>
+ 
+</table>
+
+    </div>
+
+    <%- include('partials/footer', {title: 'Pacientes Cadastrados'}) %>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+       <%- include('partials/header', {title: ' Agendar Consulta '}) %>
+
+   <div class="container">
+     <h1>Agendar Consulta</h1>
+
+
+    <form action="/usuarios/agendar" method="POST" class="form-control">
+      <input type="hidden" name="medico_id" value="<%= medico.id %>">
+      <input type="hidden" name="paciente_id" value="<%= paciente.id %>">
+      <input type="hidden" name="tipo_consulta">
+      <label for="data">Data:</label>
+      <input type="date" name="data" required>
+      <label for="hora">Hora:</label>
+      <input type="time" name="hora" required>
+
+      <label for="especialidade">Especialidade:</label>
+      <select name="especialidade" required>
+        <option value="Clinico Geral">Clínico geral</option>
+        <option value="Pediátria">Pediatria</option>
+        <option value="Genecologia">Genecologia</option>
+        <option value="Urologia">Urologia</option>
+      </select>
+
+       <label for="medicos">Médico:</label>
+      <select name="medico" required>
+        <option value="Jose Baptista">Jose Baptista</option>
+        <option value="Maria Sebastião Neto">Maria Sebastião Neto</option>
+        <option value="Bernardo Ulungo">Bernardo Ulungo</option>
+        <option value="Timoteo Gomes">Timoteo Gomes</option>
+      </select>
+
+      <label for="tipo_consulta">Tipo de Consulta
+        <select name="tipo_consulta" id="tipo_consulta">
+          <option value="Presencial">Presencial</option>
+          <option value="Online">Online</option>
+        </select>
+      </label>
+      <input type="hidden" name="status" value="pendente">
+      <button type="submit">Agendar</button>
+    </form>
+   </div>
+
+   <%- include('partials/footer', {title: ' Agendar Consulta '}) %>
+</body>
+</html>
